@@ -143,3 +143,4 @@ inoremap <expr><Right> neocomplcache#close_popup() . "\<Right>"
 "#######################
 autocmd filetype php :set makeprg=php\ -l\ %
 autocmd filetype php :set errorformat=%m\ in\ %f\ on\ line\ %l
+autocmd BufNewFile,BufRead *.ctp set filetype=php
