@@ -27,7 +27,7 @@ Bundle 'JavaScript-syntax'
 Bundle 'itspriddle/vim-javascript-indent'
 
 "php
-Bundle 'cake.vim'
+"Bundle 'cake.vim'
 "Bundle 'php.vim'
 
 
@@ -76,7 +76,7 @@ endif
 
 if has("gui_running")
     set fuoptions=maxvert,maxhorz
-    au GUIEnter * set fullscreen
+    "au GUIEnter * set fullscreen
 endif
 
 "#######################
@@ -144,3 +144,19 @@ inoremap <expr><Right> neocomplcache#close_popup() . "\<Right>"
 autocmd filetype php :set makeprg=php\ -l\ %
 autocmd filetype php :set errorformat=%m\ in\ %f\ on\ line\ %l
 autocmd BufNewFile,BufRead *.ctp set filetype=php
+
+"#######################
+" FuzzyFinder  
+"#######################
+nnoremap <Space>f f
+nnoremap <Space>F F
+nnoremap f <Nop>
+nnoremap <silent> fb :<C-u>FufBuffer<CR>
+nnoremap <silent> ff :<C-u>FufFile <C-r>=expand('%:~:.')[:-1-len(expand('%:~:.:t'))]<CR><CR>
+nnoremap <silent> fm :<C-u>FufMruFile<CR>
+let g:fuf_patternSeparator = ' '
+let g:fuf_modesDisable = ['mrucmd']
+let g:fuf_mrufile_exclude = '\v\.DS_Store|\.git|\.swp|\.svn'
+let g:fuf_mrufile_maxItem = 100
+let g:fuf_enumeratingLimit = 20
+let g:fuf_file_exclude = '\v\.DS_Store|\.git|\.swp|\.svn'
