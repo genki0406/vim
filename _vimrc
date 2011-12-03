@@ -1,5 +1,37 @@
-set nocompatible "vi非互換モード
+set nocompatible           " vi機能優先しない
+filetype off
 
+if has("win32") || has("win64")
+    set rtp+=~/vimfiles/vundle.git/ 
+    call vundle#rc('~/vimfiles/bundle/')
+else
+    set rtp+=~/.vim/vundle.git/ 
+    call vundle#rc()
+endif
+
+Bundle 'clones/vim-l9'
+Bundle 'FuzzyFinder'
+Bundle 'Shougo/neocomplcache'
+Bundle 'thinca/vim-ref'
+Bundle 'thinca/vim-quickrun'
+Bundle 'sudo.vim'
+
+"ruby
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-cucumber'
+
+
+"js
+Bundle 'JavaScript-syntax'
+Bundle 'itspriddle/vim-javascript-indent'
+
+"php
+Bundle 'cake.vim'
+"Bundle 'php.vim'
+
+
+filetype plugin indent on     " required!
 "#######################
 " 表示系
 "#######################
@@ -47,7 +79,67 @@ if has("gui_running")
     au GUIEnter * set fullscreen
 endif
 
-"PHPの辞書　補完 20090520
-:set dictionary=dictionary/php.dict
-"拡張子で、分岐するように設定しておく、今回はPHPのみの設定なのであまり関係ないが記述しておく。
-autocmd FileType php :set dictionary=dictionary/PHP.dict
+"#######################
+" リファレンス
+"####################### 
+let g:ref_phpmanual_path = '/Users/genki/Documents/Reference/php-chunked-xhtml'
+
+"#######################
+" 自動補完
+"#######################
+" Disable AutoComplPop.
+let g:acp_enableAtStartup = 0
+" Use neocomplcache.
+let g:neocomplcache_enable_at_startup = 1
+" Use smartcase.
+let g:neocomplcache_enable_smart_case = 1
+" Use camel case completion.
+let g:neocomplcache_enable_camel_case_completion = 1
+" Use underbar completion.
+let g:neocomplcache_enable_underbar_completion = 1
+" Set minimum syntax keyword length.
+let g:neocomplcache_min_syntax_length = 3
+let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
+
+" Define dictionary.
+let g:neocomplcache_dictionary_filetype_lists = {
+    \ 'default' : '',
+    \ 'vimshell' : $HOME.'/.vimshell_hist',
+    \ 'scheme' : $HOME.'/.gosh_completions'
+        \ }
+
+" Define keyword.
+if !exists('g:neocomplcache_keyword_patterns')
+    let g:neocomplcache_keyword_patterns = {}
+endif
+let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
+
+" Plugin key-mappings.
+imap <C-k>     <Plug>(neocomplcache_snippets_expand)
+smap <C-k>     <Plug>(neocomplcache_snippets_expand)
+inoremap <expr><C-g>     neocomplcache#undo_completion()
+inoremap <expr><C-l>     neocomplcache#complete_common_string()
+
+" SuperTab like snippets behavior.
+"imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
+
+" Recommended key-mappings.
+" <CR>: close popup and save indent.
+inoremap <expr><CR>  neocomplcache#close_popup() . "\<CR>"
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
+inoremap <expr><C-y>  neocomplcache#close_popup()
+inoremap <expr><C-e>  neocomplcache#cancel_popup()
+
+" For cursor moving in insert mode(Not recommended)
+inoremap <expr><Left>  neocomplcache#close_popup() . "\<Left>"
+inoremap <expr><Right> neocomplcache#close_popup() . "\<Right>"
+
+"#######################
+" PHP関連
+"#######################
+autocmd filetype php :set makeprg=php\ -l\ %
+autocmd filetype php :set errorformat=%m\ in\ %f\ on\ line\ %l
