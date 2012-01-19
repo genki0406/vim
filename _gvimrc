@@ -1,0 +1,5 @@
+highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=#666666
+au BufNewFile,BufRead * match ZenkakuSpace /　/
+map  gw :macaction selectNextWindow:
+map  gW :macaction selectPreviousWindow
+colorscheme solarized
