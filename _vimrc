@@ -1,129 +1,32 @@
-if has("win32") || has("win64")
-    set rtp+=~/vimfiles/vundle.git/ 
-    call vundle#rc('~/vimfiles/bundle/')
-else
-    set rtp+=~/.vim/vundle.git/ 
-    call vundle#rc()
-endif
+"vundle.vimで管理しているpluginを読み込む
+source ~/dotfiles/.vimrc.bundle
 
-Bundle 'clones/vim-l9'
-"Bundle 'FuzzyFinder'
-Bundle 'Shougo/neocomplcache'
-Bundle 'thinca/vim-ref'
-Bundle 'thinca/vim-quickrun'
-Bundle 'sudo.vim'
-Bundle 'unite.vim'
-Bundle 'gitvimdiff' 
-Bundle 'Shougo/git-vim'
-Bundle 'The-NERD-tree'
-Bundle 'AutoClose'
-
-"ruby
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-cucumber'
-
-
-"js
-Bundle 'JavaScript-syntax'
-Bundle 'itspriddle/vim-javascript-indent'
-
-"php
-"Bundle 'cake.vim'
-"Bundle 'php.vim'
-
-"svn
-Bundle 'svncommand.vim'
-
-"db
-Bundle 'dbext.vim'
-
-filetype plugin indent on     " required!
-"#######################
-" 表示系
-"#######################
-"新しい行のインデントを現在行と同じにする
-set autoindent
-"バックアップファイルを作るディレクトリ
-set backupdir=$HOME/vimbackup
-"ファイル保存ダイアログの初期ディレクトリをバッファファイル位置に設定
-set browsedir=buffer
-"クリップボードをWindowsと連携
-set clipboard=unnamed
-"Vi互換をオフ
-set nocompatible
-"スワップファイル用のディレクトリ
-set directory=$HOME/vimbackup
-"タブの代わりに空白文字を挿入する
-set expandtab
-"変更中のファイルでも、保存しないで他のファイルを表示
-"set hidden
-"インクリメンタルサーチを行う
-set incsearch
-"タブ文字、行末など不可視文字を表示する
-"set list
-"listで表示される文字のフォーマットを指定する
-set listchars=eol:$,tab:>\ ,extends:<
-"行番号を表示する
-set number
-"シフト移動幅
-set shiftwidth=4
-"閉じ括弧が入力されたとき、対応する括弧を表示する
-set showmatch
-"検索時に大文字を含んでいたら大/小を区別
-"set smartcase
-"新しい行を作ったときに高度な自動インデントを行う
-set smartindent
-"行頭の余白内で Tab を打ち込むと、'shiftwidth' の数だけインデントする。
-set smarttab
-"ファイル内の  が対応する空白の数
-"set tabstop=4
-"カーソルを行頭、行末で止まらないようにする
-set whichwrap=b,s,h,l,<,>,[,]
-"検索をファイルの先頭へループしない
-set nowrapscan
-"縦幅
-set lines=50
-"横幅
-set columns=150
-"入力モード時、ステータスラインのカラーを変更
-augroup InsertHook
-autocmd!
-autocmd InsertEnter * highlight StatusLine guifg=#ccdc90 guibg=#2E4340
-autocmd InsertLeave * highlight StatusLine guifg=#2E4340 guibg=#ccdc90
-augroup END
-"日本語入力をリセット
-au BufNewFile,BufRead * set iminsert=0
-"行番号表示
-set title "編集中のファイル名を表示
-set ruler "ルーラーの表示
-set showcmd "入力中のコマンドをステータスに表示する
-set laststatus=2 "ステータスラインを常に表示
-" ファイルを開いた際に、前回終了時の行で起動
-autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
-
-"#######################
-" 検索系
-"#######################
-set ignorecase "検索文字列が小文字の場合は大文字小文字を区別なく検索する
-set smartcase "検索文字列に大文字が含まれている場合は区別して検索する
-set wrapscan "検索時に最後まで行ったら最初に戻る
-set noincsearch "検索文字列入力時に順次対象文字列にヒットさせない
-set nohlsearch "検索結果文字列の非ハイライト表示
-
-if has('gui_macvim')
-    set showtabline=2   " タブを常に表示
-    set imdisable   " IMを無効化
-    set transparency=10 " 透明度を指定
-    set antialias
-    defaults write org.vim.MacVim MMTerminateAfterLastWindowClosed yes "最後のウィンドウを閉じた時に自動でMacVim終了
-    defaults write org.vim.MacVim MMOpenFilesInTabs yes "ファイルドロップしたとタブで開く
-endif
-
-if has("gui_running")
-    set fuoptions=maxvert,maxhorz
-    "au GUIEnter * set fullscreen
-endif
+"基本設定
+source ~/dotfiles/.vimrc.basic
+"ステータスライン設定
+source ~/dotfiles/.vimrc.statusline
+"インデント設定
+source ~/dotfiles/.vimrc.indent
+"表示関連
+source ~/dotfiles/.vimrc.apperance
+"補完関連
+source ~/dotfiles/.vimrc.completion
+"Tags関連
+source ~/dotfiles/.vimrc.tags
+""検索関連
+source ~/dotfiles/.vimrc.search
+"移動関連
+source ~/dotfiles/.vimrc.moving
+"カラー設定
+source ~/dotfiles/.vimrc.colors
+"編集関連
+source ~/dotfiles/.vimrc.editing
+"エンコーディング関連
+source ~/dotfiles/.vimrc.encoding
+"その他
+"source ~/dotfiles/.vimrc.misc
+"プラグインに依存するアレ
+"source ~/dotfiles/.vimrc.plugins_setting
 
 "#######################
 " リファレンス
