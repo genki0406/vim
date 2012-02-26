@@ -1,0 +1,41 @@
+if has("win32") || has("win64")
+    set rtp+=~/vimfiles/vundle.git/ 
+    call vundle#rc('~/vimfiles/bundle/')
+else
+    set rtp+=~/.vim/vundle.git/ 
+    call vundle#rc()
+endif
+
+filetype off
+
+Bundle 'clones/vim-l9'
+"Bundle 'FuzzyFinder'
+Bundle 'Shougo/neocomplcache'
+Bundle 'thinca/vim-ref'
+Bundle 'thinca/vim-quickrun'
+Bundle 'sudo.vim'
+Bundle 'unite.vim'
+Bundle 'gitvimdiff' 
+Bundle 'Shougo/git-vim'
+Bundle 'The-NERD-tree'
+
+"ruby
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-cucumber'
+
+
+"js
+Bundle 'JavaScript-syntax'
+Bundle 'itspriddle/vim-javascript-indent'
+
+"php
+"Bundle 'cake.vim'
+"Bundle 'php.vim'
+
+"svn
+Bundle 'svncommand.vim'
+
+"db
+Bundle 'dbext.vim'
+
