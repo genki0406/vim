@@ -28,9 +28,19 @@ source ~/dotfiles/.vimrc.encoding
 "プラグインに依存するアレ
 "source ~/dotfiles/.vimrc.plugins_setting
 
+let g:Powerline_symbols = 'fancy'
+"------------------------------------
+"" Syntastic
+"------------------------------------
+"" エラー行をsignで表示する
+let g:syntastic_enable_signs = 1
+let g:syntastic_auto_loc_list=2
+" 可能ならhighligt表示する
+let g:syntastic_enable_highlighting = 1
+"
 "#######################
 " リファレンス
-"####################### 
+"#######################
 let g:ref_phpmanual_path = '/Users/genki/Documents/Reference/php-chunked-xhtml'
 
 "#######################
@@ -95,7 +105,7 @@ autocmd filetype php :set errorformat=%m\ in\ %f\ on\ line\ %l
 autocmd BufNewFile,BufRead *.ctp set filetype=php
 
 "#######################
-" FuzzyFinder  
+" FuzzyFinder
 "#######################
 "nnoremap <Space>f f
 "nnoremap <Space>F F
@@ -114,7 +124,7 @@ autocmd BufNewFile,BufRead *.ctp set filetype=php
 "nnoremap <silent> tfm :<C-u>tabnew<CR>:tabmove<CR>:FufMruFile<CR>
 
 "#######################
-" unite  
+" unite
 "#######################
 " 入力モードで開始
 let g:unite_enable_start_insert=1

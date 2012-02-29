@@ -1,8 +1,8 @@
 if has("win32") || has("win64")
-    set rtp+=~/vimfiles/vundle.git/ 
+    set rtp+=~/vimfiles/vundle.git/
     call vundle#rc('~/vimfiles/bundle/')
 else
-    set rtp+=~/.vim/vundle.git/ 
+    set rtp+=~/.vim/vundle.git/
     call vundle#rc()
 endif
 
@@ -15,9 +15,14 @@ Bundle 'thinca/vim-ref'
 Bundle 'thinca/vim-quickrun'
 Bundle 'sudo.vim'
 Bundle 'unite.vim'
-Bundle 'gitvimdiff' 
+Bundle 'gitvimdiff'
 Bundle 'Shougo/git-vim'
 Bundle 'The-NERD-tree'
+" ステータスラインをカッコよくする
+Bundle 'Lokaltog/vim-powerline'
+
+" syntax checking plugins exist for eruby,  haml,  html,  javascript,  php,  python,  ruby and sass.
+Bundle 'scrooloose/syntastic'
 
 "ruby
 Bundle 'vim-ruby/vim-ruby'
