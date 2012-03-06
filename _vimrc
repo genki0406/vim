@@ -28,15 +28,6 @@ source ~/dotfiles/.vimrc.encoding
 "プラグインに依存するアレ
 "source ~/dotfiles/.vimrc.plugins_setting
 
-let g:Powerline_symbols = 'fancy'
-"------------------------------------
-"" Syntastic
-"------------------------------------
-"" エラー行をsignで表示する
-let g:syntastic_enable_signs = 1
-let g:syntastic_auto_loc_list=2
-" 可能ならhighligt表示する
-let g:syntastic_enable_highlighting = 1
 "
 "#######################
 " リファレンス
@@ -97,31 +88,6 @@ inoremap <expr><C-e>  neocomplcache#cancel_popup()
 inoremap <expr><Left>  neocomplcache#close_popup() . "\<Left>"
 inoremap <expr><Right> neocomplcache#close_popup() . "\<Right>"
 
-"#######################
-" PHP関連
-"#######################
-autocmd filetype php :set makeprg=php\ -l\ %
-autocmd filetype php :set errorformat=%m\ in\ %f\ on\ line\ %l
-autocmd BufNewFile,BufRead *.ctp set filetype=php
-
-"#######################
-" FuzzyFinder
-"#######################
-"nnoremap <Space>f f
-"nnoremap <Space>F F
-"nnoremap f <Nop>
-"nnoremap <silent> fb :<C-u>FufBuffer<CR>
-"nnoremap <silent> ff :<C-u>FufFile <C-r>=expand('%:~:.')[:-1-len(expand('%:~:.:t'))]<CR><CR>
-"nnoremap <silent> fm :<C-u>FufMruFile<CR>
-"let g:fuf_patternSeparator = ' '
-"let g:fuf_modesDisable = ['mrucmd']
-"let g:fuf_mrufile_exclude = '\v\.DS_Store|\.git|\.swp|\.svn'
-"let g:fuf_mrufile_maxItem = 100
-"let g:fuf_enumeratingLimit = 20
-"let g:fuf_file_exclude = '\v\.DS_Store|\.git|\.swp|\.svn'
-"nnoremap <silent> tfb :<C-u>tabnew<CR>:tabmove<CR>:FufBuffer<CR>
-"nnoremap <silent> tff :<C-u>tabnew<CR>:tabmove<CR>:FufFile <C-r>=expand('#:~:.')[:-1-len(expand('#:~:.:t'))]<CR><CR>
-"nnoremap <silent> tfm :<C-u>tabnew<CR>:tabmove<CR>:FufMruFile<CR>
 
 "#######################
 " unite
@@ -155,3 +121,11 @@ au FileType unite nnoremap <silent> <buffer> <c-j> <esc><CR>
 " ESCキーを2回押すと終了する
 au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
 au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
+
+"let g:Powerline_symbols = 'fancy'
+"------------------------------------
+"" Syntastic
+"------------------------------------
+"" エラー行をsignで表示する
+let g:syntastic_enable_signs = 1
+let g:syntastic_auto_loc_list=2
