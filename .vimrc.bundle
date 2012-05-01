@@ -8,6 +8,7 @@ endif
 
 filetype off
 
+Bundle 'vim-coffee-script'
 Bundle 'ctrlp.vim'
 Bundle 'clones/vim-l9'
 "Bundle 'FuzzyFinder'
@@ -46,3 +47,5 @@ Bundle 'svncommand.vim'
 "db
 Bundle 'dbext.vim'
 
+Bundle 'lua-support'
+Bundle 'lua.vim'
