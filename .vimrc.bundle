@@ -17,8 +17,10 @@ Bundle 'thinca/vim-ref'
 Bundle 'thinca/vim-quickrun'
 Bundle 'sudo.vim'
 Bundle 'unite.vim'
-Bundle 'gitvimdiff'
-Bundle 'Shougo/git-vim'
+Bundle 'gitv'
+Bundle 'fugitive.vim'
+"Bundle 'gitvimdiff'
+"Bundle 'Shougo/git-vim'
 Bundle 'The-NERD-tree'
 
 " ステータスラインをカッコよくする
