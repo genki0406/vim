@@ -20,6 +20,7 @@ Bundle 'unite.vim'
 Bundle 'gitvimdiff'
 Bundle 'Shougo/git-vim'
 Bundle 'The-NERD-tree'
+
 " ステータスラインをカッコよくする
 Bundle 'Lokaltog/vim-powerline'
 
