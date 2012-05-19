@@ -44,11 +44,6 @@ Bundle 'itspriddle/vim-javascript-indent'
 "Bundle 'cake.vim'
 "Bundle 'php.vim'
 
-"svn
-Bundle 'svncommand.vim'
-
-"db
-Bundle 'dbext.vim'
-
+Bundle 'less.vim'
 Bundle 'lua-support'
 Bundle 'lua.vim'
